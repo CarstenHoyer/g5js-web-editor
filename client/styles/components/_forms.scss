@@ -1,0 +1,53 @@
+.form-error {
+  display: block;
+  padding-top: #{4 / $base-font-size}rem;
+  width: #{300 / $base-font-size}rem;
+  font-size: #{9 / $base-font-size}rem;
+  text-align: left;
+  @include themify() {
+    color: getThemifyVariable('error-color')
+  }
+}
+
+.form__cancel-button {
+  margin-top: #{10 / $base-font-size}rem;
+  font-size: #{12 / $base-font-size}rem;
+}
+
+.form__navigation-options {
+  margin-top: #{16 / $base-font-size}rem;
+  font-size: #{12 / $base-font-size}rem;
+  color: $form-navigation-options-color;
+}
+
+.form__label {
+  color: $secondary-form-title-color;
+  font-size: #{12 / $base-font-size}rem;
+  margin-top: #{25 / $base-font-size}rem;
+  margin-bottom: #{7 / $base-font-size}rem;
+  display: block;
+}
+
+.form__input {
+  width: #{360 / $base-font-size}rem;
+  height: #{40 / $base-font-size}rem;
+  color: $icon-hover-color;
+  border-color: $secondary-form-title-color;
+}
+
+.form__context {
+  text-align: left;
+  margin-top: #{15 / $base-font-size}rem;
+}
+
+.form__status {
+  color: $form-navigation-options-color;
+}
+
+.form input[type="submit"] {
+  @extend %forms-button;
+}
+
+.form input[type="submit"]:disabled {
+  cursor: not-allowed;
+}

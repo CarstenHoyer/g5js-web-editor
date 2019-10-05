@@ -1,0 +1,195 @@
+$base-font-size: 12;
+
+//colors
+$p5js-pink: #ed225d;
+$g5js-blue: #007bd3;
+$white: #fff;
+$black: #000;
+$yellow: #F5DC23;
+$orange: #ffa500;
+$red: #ff0000;
+$lightsteelblue: #B0C4DE;
+$dodgerblue: #1E90FF;
+$primary-text-color: #333;
+$icon-color: #8b8b8b;
+$icon-hover-color: #333;
+$p5-contrast-pink: #FFA9D9;
+
+$themes: (
+  light: (
+    logo-color: $g5js-blue,
+    primary-text-color: #333,
+    dropzone-text-color: #333,
+    modal-button-color: #333,
+    heading-text-color: #333,
+    secondary-text-color: #a8a8a8,
+    inactive-text-color: #b5b5b5,
+    // background-color: #fbfbfb,
+    background-color: #fbfbfb,
+    preview-placeholder-color: #dcdcdc,
+    button-background-color: #f4f4f4,
+    button-color: $black,
+    button-border-color: #130a0a,
+    toolbar-button-color: $g5js-blue,
+    toolbar-button-background-color: #f4f4f4,
+    button-background-hover-color: $g5js-blue,
+    button-background-active-color: #f10046,
+    button-nav-inactive-color: #a0a0a0,
+    button-hover-color: $white,
+    button-active-color: $white,
+    modal-background-color: #f4f4f4,
+    modal-button-background-color: #e6e6e6,
+    modal-border-color: rgba(17, 17, 17, 0.3),
+    modal-border-selected-color: #B9D0E1,
+    icon-color: $icon-color,
+    icon-hover-color: $icon-hover-color,
+    icon-toast-hover-color: $white,
+    shadow-color: rgba(0, 0, 0, 0.16),
+    console-background-color: #eee,
+    console-color: $white,
+    console-header-background-color: #d6d6d6,
+    console-header-color: #b1b1b1,
+    console-info-background-color: $lightsteelblue,
+    console-warn-background-color: $orange,
+    console-debug-background-color: $dodgerblue,
+    console-error-background-color: $red,
+    ide-border-color: #f4f4f4,
+    editor-gutter-color: #f4f4f4,
+    file-selected-color: #f4f4f4,
+    input-text-color: #333,
+    input-border-color: #b5b5b5,
+    about-list-text-color: #4a4a4a,
+    search-background-color: #ffffff,
+    search-clear-background-color: #e9e9e9,
+    search-hover-text-color: #ffffff,
+    search-hover-background-color: #4d4d4d,
+    dropdown-color: #414141,
+    keyboard-shortcut-color: #757575,
+    nav-hover-color: $g5js-blue,
+    error-color: $g5js-blue,
+    codefold-icon-open: url(../images/triangle-arrow-down.svg),
+    codefold-icon-closed: url(../images/triangle-arrow-right.svg)
+  ),
+  dark: (
+    logo-color: $g5js-blue,
+    primary-text-color: $white,
+    dropzone-text-color: $black,
+    modal-button-color: $white,
+    heading-text-color: $white,
+    secondary-text-color: #E1E1E1,
+    inactive-text-color: #858585,
+    background-color: #333333,
+    preview-placeholder-color: #dcdcdc,
+    button-background-color: $white,
+    button-color: $black,
+    button-border-color: #979797,
+    toolbar-button-color: $g5js-blue,
+    toolbar-button-background-color: #E1E1E1,
+    button-background-hover-color: $g5js-blue,
+    button-background-active-color: #f10046,
+    button-nav-inactive-color: #a0a0a0,
+    button-hover-color: $white,
+    button-active-color: $white,
+    modal-background-color: #444,
+    modal-button-background-color: #5f5f5f,
+    modal-border-color: #949494,
+    icon-color: #a9a9a9,
+    icon-hover-color: $white,
+    icon-toast-hover-color: $white,
+    shadow-color: rgba(0, 0, 0, 0.16),
+    console-background-color: #1e1e1e,
+    console-color: $black,
+    console-header-background-color: #3f3f3f,
+    console-header-color: #b5b5b5,
+    console-info-background-color: $lightsteelblue,
+    console-warn-background-color: $orange,
+    console-debug-background-color: $dodgerblue,
+    console-error-background-color: $red,
+    ide-border-color: #949494,
+    editor-gutter-color: #1e1e1e,
+    file-selected-color: #404040,
+    input-text-color: #333,
+    input-border-color: #b5b5b5,
+    about-list-text-color: #f4f4f4,
+    search-background-color: #ffffff,
+    search-clear-background-color: #4f4f4f,
+    search-hover-text-color: #ffffff,
+    search-hover-background-color: $g5js-blue,
+    dropdown-color: #dadada,
+    keyboard-shortcut-color: #B5B5B5,
+    nav-hover-color: $g5js-blue,
+    error-color: $g5js-blue,
+    codefold-icon-open: url(../images/triangle-arrow-down-white.svg),
+    codefold-icon-closed: url(../images/triangle-arrow-right-white.svg)
+  ),
+  contrast: (
+    logo-color: $yellow,
+    primary-text-color: $yellow,
+    dropzone-text-color: $black,
+    modal-button-color: #333,
+    heading-text-color: #e1e1e1,
+    secondary-text-color: #e1e1e1,
+    inactive-text-color: #c1c1c1,
+    background-color: #333,
+    button-background-color: $white,
+    button-color: $black,
+    button-border-color: #979797,
+    toolbar-button-color: #333333,
+    toolbar-button-background-color: #C1C1C1,
+    button-background-hover-color: $yellow,
+    button-background-active-color: #f10046,
+    button-nav-inactive-color: #a0a0a0,
+    button-hover-color: #333333,
+    button-active-color: #333333,
+    modal-background-color: #444,
+    modal-button-background-color: #C1C1C1,
+    modal-border-color: #949494,
+    icon-color: #a9a9a9,
+    icon-hover-color: $yellow,
+    icon-toast-hover-color: $yellow,
+    shadow-color: rgba(0, 0, 0, 0.16),
+    console-background-color: #4f4f4f,
+    console-color: $black,
+    console-header-background-color: #3f3f3f,
+    console-header-color: #b5b5b5,
+    console-info-background-color: $lightsteelblue,
+    console-warn-background-color: $orange,
+    console-debug-background-color: $dodgerblue,
+    console-error-background-color: $red,
+    ide-border-color: #949494,
+    editor-gutter-color: #454545,
+    file-selected-color: #404040,
+    input-text-color: #333,
+    input-border-color: #b5b5b5,
+    about-list-text-color: #f4f4f4,
+    search-background-color: $white,
+    search-clear-background-color: #444,
+    search-hover-text-color: $black,
+    search-hover-background-color: $yellow,
+    dropdown-color: #e1e1e1,
+    keyboard-shortcut-color: #e1e1e1,
+    nav-hover-color: $yellow,
+    error-color: $p5-contrast-pink,
+    codefold-icon-open: url(../images/triangle-arrow-down-white.svg),
+    codefold-icon-closed: url(../images/triangle-arrow-right-white.svg)
+  )
+);
+
+$console-warn-color: #ffbe05;
+$console-error-color: #ff5f52;
+
+$toast-background-color: #4A4A4A;
+$toast-text-color: $white;
+
+$form-title-color: rgba(51, 51, 51, 0.87);
+$secondary-form-title-color: #b5b5b5;
+$form-button-background-color: $white;
+$form-button-color: #f10046;
+$form-button-background-hover-color: $g5js-blue;
+$form-button-background-active-color: #f10046;
+$form-button-hover-color: $white;
+$form-button-active-color: $white;
+$form-navigation-options-color: #999999;
+
+$about-play-background-color: rgba(255, 255, 255, 0.7);
+$about-button-border-color: rgba(151, 151, 151, 0.7);

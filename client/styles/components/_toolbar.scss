@@ -1,0 +1,164 @@
+.toolbar__play-button {
+	@include themify() {
+		@extend %toolbar-button;
+		&--selected {
+			@extend %toolbar-button--selected;
+		}
+		&:disabled {
+			cursor: auto;
+			& g {
+				fill: getThemifyVariable('button-border-color');
+			}
+			&:hover {
+				background-color: getThemifyVariable('toolbar-button-background-color');
+				& g {
+					fill: getThemifyVariable('button-border-color');
+				}
+			}
+	    }
+	}
+	margin-right: #{15 / $base-font-size}rem;
+	& span {
+		padding-left: #{3 / $base-font-size}rem;
+	}
+}
+
+.toolbar__play-sketch-button {
+	@extend %hidden-element;
+}
+
+.toolbar__stop-button {
+	@include themify() {
+		@extend %toolbar-button;
+		margin-right: #{15 / $base-font-size}rem;
+		&--selected {
+			@extend %toolbar-button--selected;
+		}
+	}
+}
+
+.toolbar__preferences-button {
+	@include themify() {
+		@extend %toolbar-button;
+		line-height: #{56 / $base-font-size}rem;
+		&--selected {
+			@extend %toolbar-button--selected;
+			line-height: #{56 / $base-font-size}rem;
+		}
+	}
+	line-height: #{56 / $base-font-size}rem;
+	margin-left: auto;
+	& span {
+		padding-left: #{1 / $base-font-size}rem;
+	}
+}
+
+.toolbar__logo {
+	margin-right: #{30 / $base-font-size}rem;
+	@include themify() {
+		& g {
+			fill: getThemifyVariable('logo-color');
+		}
+	}
+}
+
+.toolbar {
+	padding: #{20 / $base-font-size}rem #{34 / $base-font-size}rem;
+	display: flex;
+	align-items: center;
+}
+
+.toolbar__project-name-container {
+	@include themify() {
+		border-color: getThemifyVariable('inactive-text-color');
+	}
+	margin-left: #{10 / $base-font-size}rem;
+	padding-left: #{10 / $base-font-size}rem;
+	height: 70%;
+  display: flex;
+  align-items: center;
+}
+
+.toolbar__project-name {
+	@include themify() {
+		color: getThemifyVariable('inactive-text-color');
+		&:hover {
+		color: getThemifyVariable('primary-text-color');
+		  & .toolbar__edit-name-button path {
+		  	fill: getThemifyVariable('primary-text-color');
+		  }
+		}
+	}
+	cursor: pointer;
+	line-height: #{18 / $base-font-size}rem;
+
+	.toolbar__project-name-container--editing & {
+		display: none;
+	}
+}
+
+.toolbar__project-name-input {
+	display: none;
+	border: 0px;
+	.toolbar__project-name-container--editing & {
+		display: block;
+	}
+}
+
+.toolbar__project-owner {
+	margin-left: #{5 / $base-font-size}rem;
+	@include themify() {
+		color: getThemifyVariable('inactive-text-color');
+	}
+}
+
+.toolbar__autorefresh-label {
+	@include themify() {
+		color: getThemifyVariable('inactive-text-color');
+	}
+	margin-left: #{5 / $base-font-size}rem;
+	font-size: #{12 / $base-font-size}rem;
+}
+
+.toolbar__serve-secure {
+	margin-left: #{20 / $base-font-size}rem;
+}
+
+.toolbar__serve-secure-label {
+	@include themify() {
+		color: getThemifyVariable('inactive-text-color');
+	}
+	margin-left: #{5 / $base-font-size}rem;
+	font-size: #{12 / $base-font-size}rem;
+}
+
+.toolbar__serve-secure-help {
+	display: inline-block;
+	padding-top: 0;
+	padding-bottom: 0;
+	& svg {
+		width: #{10 / $base-font-size}rem;
+		height: #{10 / $base-font-size}rem;
+	}
+	@include themify() {
+		& path {
+			fill: getThemifyVariable('inactive-text-color');
+		}
+	}
+}
+
+.toolbar__edit-name-button {
+	display: inline-block;
+	vertical-align: top;
+	height: #{18 / $base-font-size}rem;
+	margin-left: #{-4 / $base-font-size}rem;
+	& svg {
+		width: #{18 / $base-font-size}rem;
+		height: #{18 / $base-font-size}rem;
+	}
+	@include themify() {
+		& path {
+			fill: getThemifyVariable('inactive-text-color');
+		}
+	}
+}

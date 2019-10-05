@@ -1,0 +1,22 @@
+.error-modal {
+  @extend %modal;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+}
+
+.error-modal__header {
+  display: flex;
+  justify-content: space-between;
+  padding: #{20 / $base-font-size}rem;
+}
+
+.error-modal__exit-button {
+  @include icon();
+}
+
+.error-modal__content {
+  padding: #{20 / $base-font-size}rem;
+  padding-top: 0;
+  padding-bottom: #{60 / $base-font-size}rem;
+}

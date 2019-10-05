@@ -1,0 +1,77 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	font-size: #{$base-font-size}px;
+}
+
+body, input {
+	@include themify() {
+		color: getThemifyVariable('primary-text-color');
+	}
+}
+
+body, input, button {
+	font-family: Montserrat, sans-serif;
+}
+
+.root-app, .app {
+	min-height: 100%;
+	height: 100%;
+}
+
+a {
+	@include themify() {
+		@extend %link;
+	}
+}
+
+input, button {
+	font-size: 1rem;
+}
+
+input {
+	padding: #{5 / $base-font-size}rem;
+	border: 1px solid ;
+	border-radius: 2px;
+	padding: #{10 / $base-font-size}rem;
+	@include themify() {
+		color: getThemifyVariable('input-text-color');
+		border-color: getThemifyVariable('input-border-color');
+	}
+}
+
+input[type="submit"] {
+	@include themify() {
+		@extend %button;
+	}
+}
+
+button {
+	@include themify() {
+		@extend %link;
+	}
+	background: transparent;
+	border: none;
+}
+
+h2 {
+	font-size: #{21 / $base-font-size}em;
+}
+
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-weight: normal;
+}
+h6 {
+	font-weight: normal;
+}
+thead {
+	text-align: left;
+}
+th {
+	text-align: left;
+}

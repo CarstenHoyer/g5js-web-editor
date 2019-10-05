@@ -1,0 +1,165 @@
+// brown: #6C4D13
+// black: #333
+// blue: #0F9DD7
+// pink: #D9328F
+// gray: #999999
+// dark blue: #318094
+// white: #fdfdfd
+
+//numbers
+//light gray: #f4f4f4
+//dark gray: #b5b5b5
+
+
+// darkGrey    303030
+// middleGrey  454545
+// lightGrey   E1E1E1
+// blue        3A4483
+// burnedBlue  293039
+
+$p5-dark-lightbrown: #d98e73;
+$p5-light-green: #42F48F;
+$p5-dark-black: #1e1e1e;
+//$p5-dark-pink: #D9328F;
+$p5-dark-blue: #3A4483;
+$p5-dark-gray: #A0A0A0;
+$p-dark-darkgrey: #808080;
+$p5-dark-lightblue: #3a9ddb;
+$p5-dark-darkblue: #2D7BB6;
+$p5-dark-white: #d4d4d4;
+$p5-dark-sickgreen: #afcfa4;
+$p5-dark-whiteblue: #89deff;
+$p5-dark-sickyellow: #dcdda4;
+$p5-dark-orange: #EE9900;
+$p5-dark-lightgray: #E0D7D1;
+$p5-dark-darkgray: #666666;
+$p5-dark-green: #58a10b;
+$p5-dark-darkgreen: #5b9b4c;
+$p5-dark-goldbrown: #b58317;
+
+$p5-dark-gutter: #f4f4f4;
+$p5-dark-number: #ffffff;
+$p5-dark-selected: rgba(45, 123, 182, 25);
+$p5-dark-activeline: rgb(207, 207, 207);
+
+.CodeMirror span::selection {
+  background-color: #144f7c !important;
+}
+
+.cm-s-p5-dark {
+  background-color: $p5-dark-black;
+  color: $p5-dark-white;
+}
+
+.cm-s-p5-dark .cm-comment {
+  color: $p5-dark-darkgreen;
+}
+
+.cm-s-p5-dark .cm-def {
+  color: $p5-dark-sickyellow;
+}
+
+.cm-s-p5-dark .cm-string {
+  color: $p5-dark-lightbrown;
+}
+
+.cm-s-p5-dark .cm-atom {
+  color: $p5-dark-lightbrown !important;
+}
+
+.cm-s-p5-dark .cm-string-2 {
+  color: $p5-dark-orange;
+}
+
+.cm-s-p5-dark .cm-number {
+  color: $p5-dark-sickgreen;
+}
+
+.cm-s-p5-dark .cm-keyword,
+.cm-s-p5-dark .cm-tag {
+  color: $p5-dark-lightblue !important;
+}
+
+.cm-s-p5-dark .cm-variable {
+  color: $p5-dark-lightblue;
+}
+
+.cm-s-p5-dark .cm-variable-2,
+.cm-s-p5-dark .cm-attribute {
+  color: $p5-dark-whiteblue !important;
+}
+
+.cm-s-p5-dark .cm-property {
+  color: $p5-dark-sickyellow;
+}
+
+.cm-s-p5-dark .cm-atom {
+  color: $p5-dark-blue;
+}
+
+.cm-s-p5-dark .cm-operator {
+  color: $p5-dark-lightblue;
+}
+
+.cm-s-p5-dark .cm-linenumber {
+  color: $p5-dark-number;
+}
+
+.cm-s-p5-dark .CodeMirror-selected {
+  background-color: $p5-dark-selected;
+}
+
+.cm-s-p5-dark .CodeMirror-activeline-background {
+  background-color: transparent;
+  border-top: 1px solid #282828;
+  border-bottom: 1px solid #282828;
+}
+
+.cm-s-p5-dark .CodeMirror-activeline-gutter {
+  background-color: #454545;
+  border-right: 1px solid #949494;
+}
+
+.cm-s-p5-dark .cm-error {
+  color: #f00;
+}
+
+.cm-s-p5-dark .CodeMirror-matchingbracket {
+  outline: 1px solid $p5-dark-gray;
+  outline-offset: 1px;
+  color: $p5-dark-white !important;
+}
+
+.cm-s-p5-dark .cm-bracket  {
+  color: $p5-dark-darkgray !important;
+}
+
+.cm-s-p5-dark .cm-qualifier {
+  color: $p5-dark-lightblue;
+}
+
+.cm-s-p5-dark .cm-tag {
+  color: $p5-dark-blue;
+}
+
+.cm-s-p5-dark .cm-builtin {
+  color: $p5-dark-lightblue;
+}
+
+.cm-s-p5-dark .cm-attribute {
+  color: $p5-dark-lightblue;
+}
+
+.cm-s-p5-dark .cm-p5-function {
+  color: $p5-dark-darkblue;
+}
+
+.cm-s-p5-dark .cm-p5-variable {
+  color: $p5-dark-blue;
+  font-weight: bold;
+}
+
+.cm-s-p5-dark .CodeMirror-foldmarker {
+  background-color: white;
+  color: #333;
+}
