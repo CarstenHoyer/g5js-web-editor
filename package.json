@@ -79,7 +79,7 @@
     "dropzone": "^5.5.1",
     "express": "^4.17.1",
     "friendly-words": "^1.1.9",
-    "g5js": "git+ssh://git@github.com/CarstenHoyer/g5js.git",
+    "g5js": "https://github.com/CarstenHoyer/g5js",
     "htmlhint": "^0.11.0",
     "js-beautify": "^1.10.2",
     "jshint": "^2.10.2",
