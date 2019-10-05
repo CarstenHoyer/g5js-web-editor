@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import SplitPane from 'react-split-pane';
 import Editor from '../components/Editor';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../components/SideBar';
 import PreviewFrame from '../components/PreviewFrame';
 import Toolbar from '../components/Toolbar';
 import Preferences from '../components/Preferences';
