@@ -30,7 +30,7 @@ module.exports = [
     },
     output: {
       path: path.resolve(__dirname, '../build'),
-      filename: '[name].[hash].js',
+      filename: '[name].[chunkhash].js',
       publicPath: '/'
     },
 
@@ -123,28 +123,27 @@ module.exports = [
       minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
     },
     plugins: [
-      new ManifestPlugin({
-        basePath: '/'
-      }),
       new MiniCssExtractPlugin({
-        filename: 'app.[hash].css'
+        filename: 'app.[chunkhash].css'
       }),
       new CopyWebpackPlugin([{
         from: 'bundle.js',
         to: path.resolve(__dirname, '../build'),
-        filename: 'bundle.[hash].js',
+        filename: 'bundle.[chunkhash].js',
         context: path.resolve(__dirname, '../node_modules/g5js/dist/')
       }, {
         from: 'optimized.wasm',
         to: path.resolve(__dirname, '../build/wasm'),
-        filename: 'optimized.[hash].wasm',
+        filename: 'optimized.[chunkhash].wasm',
         context: path.resolve(__dirname, '../node_modules/g5js/dist/wasm')
       }]),
+      new ManifestPlugin({
+        basePath: '/'
+      }),
       new HtmlWebpackPlugin({
-        hash: true,
         template: './index.html',
-        filename: '../build/index.[hash].html'
-      })
+        filename: '../build/index.[chunkhash].html'
+      }),
     ]
   },
   {
@@ -154,7 +153,7 @@ module.exports = [
     target: 'web',
     mode: 'production',
     output: {
-      path: path.resolve(__dirname, '../dist'),
+      path: path.resolve(__dirname, '../build'),
       filename: 'previewScripts.js',
       publicPath: '/'
     },
@@ -174,5 +173,5 @@ module.exports = [
         }
       ]
     }
-  }
+  },
 ];

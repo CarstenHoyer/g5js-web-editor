@@ -1,6 +1,6 @@
 if (process.env.NODE_ENV === 'production') {
-  process.env.webpackAssets = JSON.stringify(require('./dist/manifest.json'));
-  require('./dist/server.bundle.js');
+  process.env.webpackAssets = JSON.stringify(require('./build/manifest.json'));
+  require('./build/server.bundle.js');
 } else {
   const parsed = require('dotenv').config();
   require('@babel/register')({
