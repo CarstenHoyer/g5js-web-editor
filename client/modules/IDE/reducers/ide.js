@@ -37,7 +37,6 @@ const ide = (state = initialState, action) => {
     case ActionTypes.STOP_ACCESSIBLE_OUTPUT:
       return { ...state, isAccessibleOutputPlaying: false }
     case ActionTypes.CONSOLE_EVENT:
-      console.log(action)
       return { ...state, consoleEvent: action.event }
     case ActionTypes.SHOW_MODAL:
       return { ...state, modalIsVisible: true }
