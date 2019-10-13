@@ -2,17 +2,83 @@ import objectID from 'bson-objectid'
 import * as ActionTypes from '../../../constants'
 
 const defaultSketch = `const sketch = (p) => {
+  const circles = []
+  const minRadius = 2
+  const maxRadius = 100
+  const totalCircles = 100
+  const createCircleAttempts = 500
+
   p.setup = () => {
     p.createCanvas(400, 400)
-    p.background(220)
-    p.noFill()
+    p.background(255)
     p.noLoop()
+    p.noFill()
   }
-  
+
+  function createAndDrawCircle() {
+    let newCircle;
+    let circleSafeToDraw = false;
+    for (var tries = 0; tries < createCircleAttempts; tries++) {
+      newCircle = {
+        x: Math.floor(Math.random() * p.width),
+        y: Math.floor(Math.random() * p.width),
+        radius: minRadius
+      }
+
+      if (doesCircleHaveACollision(newCircle)) {
+        continue;
+      } else {
+        circleSafeToDraw = true;
+        break;
+      }
+    }
+
+    if (!circleSafeToDraw) {
+      return;
+    }
+
+    for (var radiusSize = minRadius; radiusSize < maxRadius; radiusSize++) {
+      newCircle.radius = radiusSize;
+      if (doesCircleHaveACollision(newCircle)) {
+        newCircle.radius--;
+        break;
+      }
+    }
+
+    circles.push(newCircle)
+    p.ellipse(newCircle.x, newCircle.y, newCircle.radius * 2)
+  }
+
+  function doesCircleHaveACollision(circle) {
+    for (var i = 0; i < circles.length; i++) {
+      var otherCircle = circles[i];
+      var a = circle.radius + otherCircle.radius;
+      var x = circle.x - otherCircle.x;
+      var y = circle.y - otherCircle.y;
+
+      if (a >= Math.sqrt((x * x) + (y * y))) {
+        return true;
+      }
+    }
+
+    if (circle.x + circle.radius >= p.width ||
+      circle.x - circle.radius <= 0) {
+      return true;
+    }
+
+    if (circle.y + circle.radius >= p.height ||
+      circle.y - circle.radius <= 0) {
+      return true;
+    }
+
+    return false;
+  }
+
   p.draw = () => {
-    p.circle(100, 100, 100)
-    p.bezier(10, 100, 23, 50, 20, 90, 100, 100)
-    console.log(p.printGcode().join("\\n"))
+    for (let i = 0; i < totalCircles; i++) {
+      createAndDrawCircle();
+    }
+    console.log(p.gcode.commands.join('\n'))
   }
 }`
 
