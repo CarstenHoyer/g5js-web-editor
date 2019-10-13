@@ -1,7 +1,11 @@
 import objectID from 'bson-objectid'
 import * as ActionTypes from '../../../constants'
 
-const defaultSketch = `const sketch = (p) => {
+const defaultSketch = `
+// This example is adapted from
+// https://generativeartistry.com/tutorials/circle-packing/
+
+const sketch = (p) => {
   const circles = []
   const minRadius = 2
   const maxRadius = 100
@@ -78,7 +82,7 @@ const defaultSketch = `const sketch = (p) => {
     for (let i = 0; i < totalCircles; i++) {
       createAndDrawCircle();
     }
-    console.log(p.gcode.commands.join('\n'))
+    console.log(p.gcode.commands.join("\\n"))
   }
 }`
 
