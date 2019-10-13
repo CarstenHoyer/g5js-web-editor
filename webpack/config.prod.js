@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -28,7 +29,7 @@ module.exports = [
       ]
     },
     output: {
-      path: path.resolve(__dirname, '../dist/static'),
+      path: path.resolve(__dirname, '../dist'),
       filename: '[name].[hash].js',
       publicPath: '/'
     },
@@ -138,7 +139,12 @@ module.exports = [
         to: path.resolve(__dirname, '../dist/wasm'),
         filename: 'optimized.[hash].wasm',
         context: path.resolve(__dirname, '../node_modules/g5js/dist/wasm')
-      }])
+      }]),
+      new HtmlWebpackPlugin({
+        hash: true,
+        template: './index.html',
+        filename: '../dist/index.[hash].html'
+      })
     ]
   },
   {
@@ -148,7 +154,7 @@ module.exports = [
     target: 'web',
     mode: 'production',
     output: {
-      path: path.resolve(__dirname, '../dist/static'),
+      path: path.resolve(__dirname, '../dist'),
       filename: 'previewScripts.js',
       publicPath: '/'
     },
