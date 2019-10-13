@@ -1,13 +1,13 @@
 if (process.env.NODE_ENV === 'production') {
-  process.env.webpackAssets = JSON.stringify(require('./dist/static/manifest.json'));
+  process.env.webpackAssets = JSON.stringify(require('./dist/manifest.json'));
   require('./dist/server.bundle.js');
 } else {
-  let parsed = require('dotenv').config();
+  const parsed = require('dotenv').config();
   require('@babel/register')({
-    presets: ["@babel/preset-env"]
+    presets: ['@babel/preset-env']
   });
   require('@babel/polyfill');
-  //// in development, let .env values override those in the environment already (i.e. in docker-compose.yml)
+  // // in development, let .env values override those in the environment already (i.e. in docker-compose.yml)
   // so commenting this out makes the docker container work.
   // if (process.env.NODE_ENV === 'development') {
   //   for (let key in parsed) {
