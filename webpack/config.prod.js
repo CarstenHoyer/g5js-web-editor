@@ -29,7 +29,7 @@ module.exports = [
       ]
     },
     output: {
-      path: path.resolve(__dirname, '../dist'),
+      path: path.resolve(__dirname, '../build'),
       filename: '[name].[hash].js',
       publicPath: '/'
     },
@@ -131,19 +131,19 @@ module.exports = [
       }),
       new CopyWebpackPlugin([{
         from: 'bundle.js',
-        to: path.resolve(__dirname, '../dist'),
+        to: path.resolve(__dirname, '../build'),
         filename: 'bundle.[hash].js',
         context: path.resolve(__dirname, '../node_modules/g5js/dist/')
       }, {
         from: 'optimized.wasm',
-        to: path.resolve(__dirname, '../dist/wasm'),
+        to: path.resolve(__dirname, '../build/wasm'),
         filename: 'optimized.[hash].wasm',
         context: path.resolve(__dirname, '../node_modules/g5js/dist/wasm')
       }]),
       new HtmlWebpackPlugin({
         hash: true,
         template: './index.html',
-        filename: '../dist/index.[hash].html'
+        filename: '../build/index.[hash].html'
       })
     ]
   },
