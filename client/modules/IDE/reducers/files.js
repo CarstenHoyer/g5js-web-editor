@@ -1,7 +1,7 @@
-import objectID from 'bson-objectid'
-import * as ActionTypes from '../../../constants'
+import objectID from 'bson-objectid';
+import * as ActionTypes from '../../../constants';
 
-const defaultSketch = `
+const defaultSketch = `// v0.0.7
 // This example is adapted from
 // https://generativeartistry.com/tutorials/circle-packing/
 
@@ -80,11 +80,11 @@ const sketch = (p) => {
 
   p.draw = () => {
     for (let i = 0; i < totalCircles; i++) {
-      createAndDrawCircle();
+     createAndDrawCircle();
     }
     console.log(p.gcode.commands.join("\\n"))
   }
-}`
+}`;
 
 const defaultHTML = `<!DOCTYPE html>
 <html>
@@ -106,7 +106,7 @@ const defaultHTML = `<!DOCTYPE html>
   </script>
   </body>
 </html>
-`
+`;
 
 const defaultCSS = `html, body {
   margin: 0;
@@ -115,13 +115,13 @@ const defaultCSS = `html, body {
 canvas {
   display: block;
 }
-`
+`;
 
 const initialState = () => {
-  const a = objectID().toHexString()
-  const b = objectID().toHexString()
-  const c = objectID().toHexString()
-  const r = objectID().toHexString()
+  const a = objectID().toHexString();
+  const b = objectID().toHexString();
+  const c = objectID().toHexString();
+  const r = objectID().toHexString();
   return [
     {
       name: 'root',
@@ -155,45 +155,52 @@ const initialState = () => {
       _id: c,
       fileType: 'file',
       children: []
-    }]
-}
+    }
+  ];
+};
 
 function getAllDescendantIds(state, nodeId) {
-  return state.find((file) => file.id === nodeId).children
-    .reduce((acc, childId) => (
-      [...acc, childId, ...getAllDescendantIds(state, childId)]
-    ), [])
+  return state
+    .find((file) => file.id === nodeId)
+    .children.reduce(
+      (acc, childId) => [
+        ...acc,
+        childId,
+        ...getAllDescendantIds(state, childId)
+      ],
+      []
+    );
 }
 
 function deleteChild(state, parentId, id) {
   const newState = state.map((file) => {
     if (file.id === parentId) {
-      const newFile = { ...file }
-      newFile.children = newFile.children.filter((child) => child !== id)
-      return newFile
+      const newFile = { ...file };
+      newFile.children = newFile.children.filter((child) => child !== id);
+      return newFile;
     }
-    return file
-  })
-  return newState
+    return file;
+  });
+  return newState;
 }
 
 function deleteMany(state, ids) {
-  const newState = [...state]
+  const newState = [...state];
   ids.forEach((id) => {
-    let fileIndex
+    let fileIndex;
     newState.find((file, index) => {
       if (file.id === id) {
-        fileIndex = index
+        fileIndex = index;
       }
-      return file.id === id
-    })
-    newState.splice(fileIndex, 1)
-  })
-  return newState
+      return file.id === id;
+    });
+    newState.splice(fileIndex, 1);
+  });
+  return newState;
 }
 
 const files = (state, action) => {
-  const { content, blobURL, name } = action
+  const { content, blobURL, name } = action;
   if (state === undefined) {
     state = initialState(); // eslint-disable-line
   }
@@ -201,35 +208,36 @@ const files = (state, action) => {
     case ActionTypes.UPDATE_FILE_CONTENT:
       return state.map((file) => {
         if (file.id !== action.id) {
-          return file
+          return file;
         }
 
-        return { ...file, content }
-      })
+        return { ...file, content };
+      });
     case ActionTypes.SET_BLOB_URL:
       return state.map((file) => {
         if (file.id !== action.id) {
-          return file
+          return file;
         }
-        return { ...file, blobURL }
-      })
+        return { ...file, blobURL };
+      });
     case ActionTypes.NEW_PROJECT:
-      return [...action.files]
+      return [...action.files];
     case ActionTypes.SET_PROJECT:
-      return [...action.files]
+      return [...action.files];
     case ActionTypes.RESET_PROJECT:
-      return initialState()
-    case ActionTypes.CREATE_FILE: // eslint-disable-line
-    {
+      return initialState();
+    case ActionTypes.CREATE_FILE: {
+      // eslint-disable-line
       const newState = state.map((file) => {
         if (file.id === action.parentId) {
-          const newFile = { ...file }
-          newFile.children = [...newFile.children, action.id]
-          return newFile
+          const newFile = { ...file };
+          newFile.children = [...newFile.children, action.id];
+          return newFile;
         }
-        return file
-      })
-      return [...newState,
+        return file;
+      });
+      return [
+        ...newState,
         {
           name: action.name,
           id: action.id,
@@ -238,20 +246,23 @@ const files = (state, action) => {
           url: action.url,
           children: action.children,
           fileType: action.fileType || 'file'
-        }]
+        }
+      ];
     }
     case ActionTypes.UPDATE_FILE_NAME:
       return state.map((file) => {
         if (file.id !== action.id) {
-          return file
+          return file;
         }
 
-        return { ...file, name }
-      })
-    case ActionTypes.DELETE_FILE:
-    {
-      const newState = deleteMany(state, [action.id, ...getAllDescendantIds(state, action.id)])
-      return deleteChild(newState, action.parentId, action.id)
+        return { ...file, name };
+      });
+    case ActionTypes.DELETE_FILE: {
+      const newState = deleteMany(state, [
+        action.id,
+        ...getAllDescendantIds(state, action.id)
+      ]);
+      return deleteChild(newState, action.parentId, action.id);
       // const newState = state.map((file) => {
       //   if (file.id === action.parentId) {
       //     const newChildren = file.children.filter(child => child !== action.id);
@@ -264,32 +275,32 @@ const files = (state, action) => {
     case ActionTypes.SET_SELECTED_FILE:
       return state.map((file) => {
         if (file.id === action.selectedFile) {
-          return { ...file, isSelectedFile: true }
+          return { ...file, isSelectedFile: true };
         }
-        return { ...file, isSelectedFile: false }
-      })
+        return { ...file, isSelectedFile: false };
+      });
     case ActionTypes.SHOW_FOLDER_CHILDREN:
       return state.map((file) => {
         if (file.id === action.id) {
-          return { ...file, isFolderClosed: false }
+          return { ...file, isFolderClosed: false };
         }
-        return file
-      })
+        return file;
+      });
     case ActionTypes.HIDE_FOLDER_CHILDREN:
       return state.map((file) => {
         if (file.id === action.id) {
-          return { ...file, isFolderClosed: true }
+          return { ...file, isFolderClosed: true };
         }
-        return file
-      })
+        return file;
+      });
     default:
-      return state
+      return state;
   }
-}
+};
 
-export const getHTMLFile = (state) => state.filter((file) => file.name.match(/.*\.html$/i))[0]
+export const getHTMLFile = (state) => state.filter((file) => file.name.match(/.*\.html$/i))[0];
 // export const getJSFiles = state => state.filter(file => file.name.match(/.*\.js$/i))
 // export const getCSSFiles = state => state.filter(file => file.name.match(/.*\.css$/i))
 // export const getLinkedFiles = state => state.filter(file => file.url)
 
-export default files
+export default files;
