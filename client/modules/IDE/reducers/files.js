@@ -1,7 +1,7 @@
 import objectID from 'bson-objectid';
 import * as ActionTypes from '../../../constants';
 
-const defaultSketch = `// v0.0.8
+const defaultSketch = `// v0.0.9
 // This example is adapted from
 // https://generativeartistry.com/tutorials/circle-packing/
 
