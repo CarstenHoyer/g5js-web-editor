@@ -4117,9 +4117,9 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-"g5js@https://github.com/CarstenHoyer/g5js#0.0.10":
+"g5js@https://github.com/CarstenHoyer/g5js#0.0.11":
   version "0.0.1"
-  resolved "https://github.com/CarstenHoyer/g5js#60a7c5b6b6137e8b4e7dd440d6d5a587a2125114"
+  resolved "https://github.com/CarstenHoyer/g5js#3ee096f9ac26fdc41a78b589d84cd5973ff6abe1"
   dependencies:
     assemblyscript "github:AssemblyScript/assemblyscript"
     beziertobiarc "https://github.com/CarstenHoyer/bezierToBiarc#0.0.7"
