@@ -78,7 +78,7 @@
     "decomment": "^0.9.2",
     "dotenv": "^8.1.0",
     "dropzone": "^5.5.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "friendly-words": "^1.1.9",
     "g5js": "https://github.com/CarstenHoyer/g5js#0.0.12",
     "htmlhint": "^0.11.0",
